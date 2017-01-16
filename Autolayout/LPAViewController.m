@@ -15,8 +15,8 @@
 @property (nonatomic, weak) UIButton *landscapeButton;
 
 @property (nonatomic, weak) UIView *framingView;
-@property (nonatomic, weak) NSLayoutConstraint *framingViewHeight;
-@property (nonatomic, weak) NSLayoutConstraint *framingViewWidth;
+@property (nonatomic, weak) NSLayoutConstraint *framingViewHeightConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *framingViewWidthConstraint;
 
 @end
 
@@ -53,63 +53,67 @@
     [self.view addSubview:framingView];
     self.framingView = framingView;
     
-    NSString *buttonsHorizontalConstraints = @"|[squareButton(==portraitButton)][portraitButton(==landscapeButton)][landscapeButton]|";
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:buttonsHorizontalConstraints
-                                                                      options:NSLayoutFormatAlignAllCenterY
-                                                                      metrics:nil
-                                                                        views:NSDictionaryOfVariableBindings(squareButton, portraitButton, landscapeButton)]];
+    NSString *buttonsHorizontalConstraintsFormat = @"|[squareButton(==portraitButton)][portraitButton(==landscapeButton)][landscapeButton]|";
+    NSArray *buttonsHorizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:buttonsHorizontalConstraintsFormat
+                                                                   options:NSLayoutFormatAlignAllCenterY
+                                                                    metrics:nil
+                                                                    views:NSDictionaryOfVariableBindings(squareButton, portraitButton, landscapeButton)];
+    [NSLayoutConstraint activateConstraints:buttonsHorizontalConstraints];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:squareButton
+    NSLayoutConstraint *squareButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:squareButton
                                                           attribute:NSLayoutAttributeBottom
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view
                                                           attribute:NSLayoutAttributeBottom
                                                          multiplier:1.0
-                                                           constant:-50.0]];
+                                                           constant:-50.0];
+    squareButtonBottomConstraint.active = YES;
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:framingView
-                                                          attribute:NSLayoutAttributeCenterX
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterX
-                                                         multiplier:1.0
-                                                           constant:0.0]];
+    NSLayoutConstraint *framingViewCenterXConstraint = [NSLayoutConstraint constraintWithItem:framingView
+                                                                                    attribute:NSLayoutAttributeCenterX
+                                                                                    relatedBy:NSLayoutRelationEqual
+                                                                                       toItem:self.view
+                                                                                    attribute:NSLayoutAttributeCenterX
+                                                                                   multiplier:1.0
+                                                                                     constant:0.0];
+    framingViewCenterXConstraint.active = YES;
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:framingView
-                                                          attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterY
-                                                         multiplier:1.0
-                                                           constant:-50.0]];
+    NSLayoutConstraint *framingViewCenterY = [NSLayoutConstraint constraintWithItem:framingView
+                                                                          attribute:NSLayoutAttributeCenterY
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:self.view
+                                                                          attribute:NSLayoutAttributeCenterY
+                                                                         multiplier:1.0
+                                                                           constant:-50.0];
+    framingViewCenterY.active = YES;
     
-    NSLayoutConstraint *framingViewHeight = [NSLayoutConstraint constraintWithItem:framingView
-                                                                         attribute:NSLayoutAttributeHeight
-                                                                         relatedBy:NSLayoutRelationEqual
-                                                                            toItem:nil
-                                                                         attribute:NSLayoutAttributeNotAnAttribute
-                                                                        multiplier:1.0
-                                                                          constant:500.0];
+    self.framingViewHeightConstraint = [NSLayoutConstraint constraintWithItem:framingView
+                                                                                   attribute:NSLayoutAttributeHeight
+                                                                                   relatedBy:NSLayoutRelationEqual
+                                                                                      toItem:nil
+                                                                                   attribute:NSLayoutAttributeNotAnAttribute
+                                                                                  multiplier:1.0
+                                                                                    constant:500.0];
+    self.framingViewHeightConstraint.active = YES;
     
-    NSLayoutConstraint *framingViewWidth = [NSLayoutConstraint constraintWithItem:framingView
-                                                                        attribute:NSLayoutAttributeWidth
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:nil
-                                                                        attribute:NSLayoutAttributeNotAnAttribute
-                                                                       multiplier:1.0
-                                                                         constant:500.0];
-    
-    [framingView addConstraint:framingViewHeight];
-    [framingView addConstraint:framingViewWidth];
-    
-    self.framingViewHeight = framingViewHeight;
-    self.framingViewWidth = framingViewWidth;
+    self.framingViewWidthConstraint = [NSLayoutConstraint constraintWithItem:framingView
+                                                                                  attribute:NSLayoutAttributeWidth
+                                                                                  relatedBy:NSLayoutRelationEqual
+                                                                                     toItem:nil
+                                                                                  attribute:NSLayoutAttributeNotAnAttribute
+                                                                                 multiplier:1.0
+                                                                                   constant:500.0];
+    self.framingViewWidthConstraint.active = YES;
+
     
     // Set up your views and constraints here
     
     
 }
 
+/**
+ Resize the frame of the framing view depending on which button was pressed.
+ */
 - (void)resizeFramingView:(id)sender
 {
     CGFloat newWidth = 0.0;
@@ -127,8 +131,8 @@
     }
     
     [UIView animateWithDuration:2.0 animations:^(){
-        self.framingViewHeight.constant = newHeight;
-        self.framingViewWidth.constant = newWidth;
+        self.framingViewHeightConstraint.constant = newHeight;
+        self.framingViewWidthConstraint.constant = newWidth;
         [self.view layoutIfNeeded];
     }];
 }
