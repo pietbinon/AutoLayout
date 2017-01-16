@@ -10,13 +10,13 @@
 
 @interface LPAViewController ()
 
-@property (nonatomic, weak) UIButton *  squareButton;
-@property (nonatomic, weak) UIButton *  portraitButton;
-@property (nonatomic, weak) UIButton *  landscapeButton;
+@property (nonatomic, weak) UIButton *squareButton;
+@property (nonatomic, weak) UIButton *portraitButton;
+@property (nonatomic, weak) UIButton *landscapeButton;
 
-@property (nonatomic, weak) UIView *                framingView;
-@property (nonatomic, weak) NSLayoutConstraint *    framingViewHeight;
-@property (nonatomic, weak) NSLayoutConstraint *    framingViewWidth;
+@property (nonatomic, weak) UIView *framingView;
+@property (nonatomic, weak) NSLayoutConstraint *framingViewHeight;
+@property (nonatomic, weak) NSLayoutConstraint *framingViewWidth;
 
 @end
 
