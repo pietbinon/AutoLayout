@@ -108,6 +108,8 @@
     
     
     
+ 
+    
     
     
     //UIView and set its frame to CGRectZero
@@ -122,21 +124,23 @@
     [framingView addSubview:purpleBoxView];
     //Same as previous line
     //[self.view addSubview: purpleBoxView];
-    
-    UIView *firstBlueBoxView = [[UIView alloc] initWithFrame:CGRectZero];
-    firstBlueBoxView.translatesAutoresizingMaskIntoConstraints = NO;
-    firstBlueBoxView.backgroundColor = [UIColor blueColor];
-    [framingView addSubview:firstBlueBoxView];
-    
-    UIView *secondBlueBoxView = [[UIView alloc] initWithFrame:CGRectZero];
-    secondBlueBoxView.translatesAutoresizingMaskIntoConstraints = NO;
-    secondBlueBoxView.backgroundColor = [UIColor blueColor];
-    [framingView addSubview:secondBlueBoxView];
-    
-    UIView *thirdBlueBoxView = [[UIView alloc] initWithFrame:CGRectZero];
-    thirdBlueBoxView.translatesAutoresizingMaskIntoConstraints = NO;
-    thirdBlueBoxView.backgroundColor = [UIColor blueColor];
-    [framingView addSubview:thirdBlueBoxView];
+
+//==>==>==>==>==>==>==>EVERYTHING BLUE BOX REPLACED BY CODE BELOW==>==>==>==>==>==>==>==>
+//    UIView *firstBlueBoxView = [[UIView alloc] initWithFrame:CGRectZero];
+//    firstBlueBoxView.translatesAutoresizingMaskIntoConstraints = NO;
+//    firstBlueBoxView.backgroundColor = [UIColor blueColor];
+//    [framingView addSubview:firstBlueBoxView];
+//    
+//    UIView *secondBlueBoxView = [[UIView alloc] initWithFrame:CGRectZero];
+//    secondBlueBoxView.translatesAutoresizingMaskIntoConstraints = NO;
+//    secondBlueBoxView.backgroundColor = [UIColor blueColor];
+//    [framingView addSubview:secondBlueBoxView];
+//    
+//    UIView *thirdBlueBoxView = [[UIView alloc] initWithFrame:CGRectZero];
+//    thirdBlueBoxView.translatesAutoresizingMaskIntoConstraints = NO;
+//    thirdBlueBoxView.backgroundColor = [UIColor blueColor];
+//    [framingView addSubview:thirdBlueBoxView];
+//==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>
     
     UIView *redBoxView = [[UIView alloc] initWithFrame:CGRectZero];
     redBoxView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -152,6 +156,8 @@
     rightOrangeBoxView.translatesAutoresizingMaskIntoConstraints = NO;
     rightOrangeBoxView.backgroundColor = [UIColor orangeColor];
     [framingView addSubview:rightOrangeBoxView];
+    
+    
     
     
     
@@ -189,96 +195,97 @@
                                 multiplier:(305.0/500.0)
                                   constant:1].active = YES;
     
-    [NSLayoutConstraint constraintWithItem:firstBlueBoxView
-                                 attribute:NSLayoutAttributeHeight
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:50.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:firstBlueBoxView
-                                 attribute:NSLayoutAttributeWidth
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:50.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:framingView
-                                 attribute:NSLayoutAttributeCenterX
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:firstBlueBoxView
-                                 attribute:NSLayoutAttributeCenterX
-                                multiplier:1.0 constant:0.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:firstBlueBoxView
-                                 attribute:NSLayoutAttributeCenterY
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:framingView
-                                 attribute:NSLayoutAttributeCenterY
-                                multiplier:0.5 constant:0.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
-                                 attribute:NSLayoutAttributeHeight
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:50.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
-                                 attribute:NSLayoutAttributeWidth
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:50.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
-                                 attribute:NSLayoutAttributeCenterX
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:framingView
-                                 attribute:NSLayoutAttributeCenterX
-                                multiplier:1.f constant:0.f].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
-                                 attribute:NSLayoutAttributeCenterY
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:framingView
-                                 attribute:NSLayoutAttributeCenterY
-                                multiplier:1.f constant:0.f].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:thirdBlueBoxView
-                                 attribute:NSLayoutAttributeHeight
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:50.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:thirdBlueBoxView
-                                 attribute:NSLayoutAttributeWidth
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:50.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:framingView
-                                 attribute:NSLayoutAttributeCenterX
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:thirdBlueBoxView
-                                 attribute:NSLayoutAttributeCenterX
-                                multiplier:1.0 constant:0.0].active = YES;
-    
-    [NSLayoutConstraint constraintWithItem:thirdBlueBoxView
-                                 attribute:NSLayoutAttributeCenterY
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:framingView
-                                 attribute:NSLayoutAttributeCenterY
-                                multiplier:1.5 constant:0.0].active = YES;
-    
+//==>==>==>==>==>==>==>EVERYTHING BLUE BOX REPLACED BY CODE BELOW==>==>==>==>==>==>==>==>
+//    [NSLayoutConstraint constraintWithItem:firstBlueBoxView
+//                                 attribute:NSLayoutAttributeHeight
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:nil
+//                                 attribute:NSLayoutAttributeNotAnAttribute
+//                                multiplier:1.0
+//                                  constant:50.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:firstBlueBoxView
+//                                 attribute:NSLayoutAttributeWidth
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:nil
+//                                 attribute:NSLayoutAttributeNotAnAttribute
+//                                multiplier:1.0
+//                                  constant:50.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:framingView
+//                                 attribute:NSLayoutAttributeCenterX
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:firstBlueBoxView
+//                                 attribute:NSLayoutAttributeCenterX
+//                                multiplier:1.0 constant:0.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:firstBlueBoxView
+//                                 attribute:NSLayoutAttributeCenterY
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:framingView
+//                                 attribute:NSLayoutAttributeCenterY
+//                                multiplier:0.5 constant:0.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
+//                                 attribute:NSLayoutAttributeHeight
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:nil
+//                                 attribute:NSLayoutAttributeNotAnAttribute
+//                                multiplier:1.0
+//                                  constant:50.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
+//                                 attribute:NSLayoutAttributeWidth
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:nil
+//                                 attribute:NSLayoutAttributeNotAnAttribute
+//                                multiplier:1.0
+//                                  constant:50.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
+//                                 attribute:NSLayoutAttributeCenterX
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:framingView
+//                                 attribute:NSLayoutAttributeCenterX
+//                                multiplier:1.f constant:0.f].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:secondBlueBoxView
+//                                 attribute:NSLayoutAttributeCenterY
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:framingView
+//                                 attribute:NSLayoutAttributeCenterY
+//                                multiplier:1.f constant:0.f].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:thirdBlueBoxView
+//                                 attribute:NSLayoutAttributeHeight
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:nil
+//                                 attribute:NSLayoutAttributeNotAnAttribute
+//                                multiplier:1.0
+//                                  constant:50.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:thirdBlueBoxView
+//                                 attribute:NSLayoutAttributeWidth
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:nil
+//                                 attribute:NSLayoutAttributeNotAnAttribute
+//                                multiplier:1.0
+//                                  constant:50.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:framingView
+//                                 attribute:NSLayoutAttributeCenterX
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:thirdBlueBoxView
+//                                 attribute:NSLayoutAttributeCenterX
+//                                multiplier:1.0 constant:0.0].active = YES;
+//    
+//    [NSLayoutConstraint constraintWithItem:thirdBlueBoxView
+//                                 attribute:NSLayoutAttributeCenterY
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:framingView
+//                                 attribute:NSLayoutAttributeCenterY
+//                                multiplier:1.5 constant:0.0].active = YES;
+//==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>==>
     
     [NSLayoutConstraint constraintWithItem:redBoxView
                                  attribute:NSLayoutAttributeTrailing
@@ -378,8 +385,90 @@
                                  attribute:NSLayoutAttributeWidth
                                 multiplier:1.0
                                   constant:50].active = YES;
-}
+
     
+    
+
+//==>==>==>==>==>==>==>BLUE BOX & SPACER VIEW: REPLACES BLUE BOX CODE ABOVE==>==>==>==>==>==>==>==>
+
+UIView *blueBox1 = [[UIView alloc] initWithFrame:CGRectZero];
+blueBox1.backgroundColor = [UIColor blueColor];
+blueBox1.translatesAutoresizingMaskIntoConstraints = NO;
+
+UIView *blueBox2 = [[UIView alloc] initWithFrame:CGRectZero];
+blueBox2.backgroundColor = [UIColor blueColor];
+blueBox2.translatesAutoresizingMaskIntoConstraints = NO;
+
+UIView *blueBox3 = [[UIView alloc] initWithFrame:CGRectZero];
+blueBox3.backgroundColor = [UIColor blueColor];
+blueBox3.translatesAutoresizingMaskIntoConstraints = NO;
+
+
+[framingView addSubview:blueBox1];
+[framingView addSubview:blueBox2];
+[framingView addSubview:blueBox3];
+
+
+//See below for the spacerView method
+UIView *spacer1 = [self spacerView];
+UIView *spacer2 = [self spacerView];
+UIView *spacer3 = [self spacerView];
+UIView *spacer4 = [self spacerView];
+
+
+[framingView addSubview:spacer1];
+[framingView addSubview:spacer2];
+[framingView addSubview:spacer3];
+[framingView addSubview:spacer4];
+
+
+
+//"V" is for Vertical in the following line
+NSString *blueBoxVerticalFormat = @"V:|[spacer1(==spacer2)][blueBox1(50)][spacer2(==spacer3)][blueBox2(==blueBox1)][spacer3(==spacer4)][blueBox3(==blueBox2)][spacer4]|";
+
+NSArray *blueBoxVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:blueBoxVerticalFormat
+                                                                              options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight
+                                                                              metrics:nil
+                                                                                views:NSDictionaryOfVariableBindings(blueBox1, blueBox2, blueBox3, spacer1, spacer2, spacer3, spacer4)];
+[NSLayoutConstraint activateConstraints:blueBoxVerticalConstraints];
+
+
+NSLayoutConstraint *blueBoxWidthConstraint = [NSLayoutConstraint constraintWithItem:blueBox1
+                                                                          attribute:NSLayoutAttributeWidth
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:nil
+                                                                          attribute:NSLayoutAttributeNotAnAttribute
+                                                                         multiplier:0
+                                                                           constant:50];
+blueBoxWidthConstraint.active = YES;
+
+
+NSLayoutConstraint *blueAlignXConstraint = [NSLayoutConstraint constraintWithItem:blueBox1
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:framingView
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                       multiplier:1
+                                                                         constant:0];
+blueAlignXConstraint.active = YES;
+
+
+}
+
+
+
+
+- (UIView *)spacerView {
+    UIView *spacer = [[UIView alloc] initWithFrame:CGRectZero];
+    spacer.backgroundColor = [UIColor clearColor];
+    spacer.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    return spacer;
+}
+
+//==>==>==>==>==>==>==>==>==>==>==>==>BLUE BOX & SPACER VIEW ENDS==>==>==>==>==>==>==>==>==>==>==>==>==>
+
+
     
 /**
  Resize the frame of the framing view depending on which button was pressed.
@@ -407,11 +496,15 @@
     }];
 }
 
+
 @end
 
-    
 
-//=>=>=>=>=>MORE CODE TO FOLLOW: DIFFERENT WAY OF DOING IT=>=>=>=>=>=>=>
+
+
+
+
+//==>==>==>==>==>==>MORE CODE TO FOLLOW: DIFFERENT WAY OF DOING IT==>==>==>==>==>==>==>
     
 
     
